@@ -2,7 +2,8 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const app = express();
-const errorController = require('./controllers/errorController');
+const globalErrHandler = require('./controllers/errorController');
+const AppError = require('./utils/appError');
 
 // Allow Cross-Origin requests
 app.use(cors());
@@ -14,6 +15,13 @@ app.use(helmet());
 app.use(express.json());
 
 app.use('/api',require('./routes'));
-app.use(errorController);
+
+// handle undefined Routes
+app.use('*', (req, res, next) => {
+    const err = new AppError(404, 'fail', 'undefined route');
+    next(err, req, res, next);
+});
+
+app.use(globalErrHandler);
 
 module.exports = app

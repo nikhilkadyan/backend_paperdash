@@ -5,6 +5,9 @@ const clientController = require('../controllers/clientController');
 // get a list of Clients from the database
 router.get('/', clientController.getAllClients);
 
+// get one Client from the database
+router.get('/:id', clientController.getOneClient);
+
 // add a new client to database
 router.post('/', clientController.addNewClient);
 

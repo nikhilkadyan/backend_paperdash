@@ -9,12 +9,12 @@ const clientSchema = new mongoose.Schema({
     alias: {
         type: String,
         unique: true,
-        required: [true, "Please fill a alias"],
     },
     email: {
         type: String,
         unique: true,
         lowercase: true,
+        required: [true, "Please fill a email"],
         validate: [validator.isEmail, " Please provide a valid email"],
     },
     phone: {

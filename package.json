@@ -6,7 +6,11 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "college",
+    "ncce",
+    "project"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
